@@ -1,4 +1,5 @@
 import 'package:lac/components/my_app_bar.dart';
+import 'package:lac/components/my_map.dart';
 import 'package:lac/ui/styles_config.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MapScreen extends StatelessWidget {
             children: [
               Container(
                 height: SizeConfig.textMultiplier * 60,
-                child: Container(),
+                child: MyMap(),
               ),
             ],
           ),
