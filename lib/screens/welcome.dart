@@ -2,7 +2,6 @@ import 'package:lac/screens/control.dart';
 import 'package:lac/screens/data.dart';
 import 'package:lac/screens/map.dart';
 import 'package:flutter/material.dart';
-import 'package:lac/screens/temporario.dart';
 
 class Welcome extends StatefulWidget {
   @override
@@ -24,8 +23,7 @@ class _WelcomeState extends State<Welcome> {
       body: PageView(
         controller: pageViewController,
         children: [
-          //DataScreen(),
-          Teste(),
+          DataScreen(),
           ControlScreen(),
           MapScreen(),
         ],
