@@ -14,5 +14,16 @@ class AppStyles {
     color: Colors.black,
   );
 
+  static final TextStyle listCardTitle = GoogleFonts.sansita(
+    fontSize: SizeConfig.textMultiplier * 3,
+    letterSpacing: 2,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final TextStyle listCardSubtitle = GoogleFonts.assistant(
+    fontSize: SizeConfig.textMultiplier * 1.5,
+    fontWeight: FontWeight.w800,
+  );
+
   static final double appBarHeight = SizeConfig.textMultiplier * 15;
 }

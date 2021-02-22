@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:get/get.dart';
+import 'package:lac/components/locations_list.dart';
 import 'package:lac/components/my_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:lac/controllers/location_controller.dart';
@@ -60,11 +61,7 @@ class DataScreen extends StatelessWidget {
               ),
             ),
             Text("Result Data", style: AppStyles.drawerTextStyle),
-            Obx(() {
-              return locationController.locations.length > 0
-                  ? Text(locationController.locations.length.toString())
-                  : Text("No JSON");
-            })
+            LocationsListView(),
           ],
         ),
       ),

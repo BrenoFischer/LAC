@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:lac/components/locations_list.dart';
 import 'package:lac/components/my_app_bar.dart';
 import 'package:lac/components/my_map.dart';
 import 'package:lac/components/side_drawer.dart';
@@ -24,11 +25,7 @@ class MapScreen extends StatelessWidget {
                 height: SizeConfig.textMultiplier * 60,
                 child: MyMap(),
               ),
-              Obx(() {
-                return locationController.locations.length > 0
-                    ? Text(locationController.locations.length.toString())
-                    : Text("No Locations");
-              }),
+              LocationsListView(),
             ],
           ),
         ),
