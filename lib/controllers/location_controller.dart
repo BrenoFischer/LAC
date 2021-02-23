@@ -12,6 +12,7 @@ class LocationController extends GetxController {
   }
 
   addLocation(Location location) {
+    clearLocations();
     locations.add(location);
   }
 

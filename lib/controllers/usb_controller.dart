@@ -13,7 +13,6 @@ import 'package:usb_serial/usb_serial.dart';
 class UsbController extends GetxController {
   final status = "Idle".obs;
   final ports = <Widget>[].obs;
-  final serialData = [].obs;
   UsbPort port;
   StreamSubscription<String> _subscription;
   Transaction<String> _transaction;
@@ -35,8 +34,6 @@ class UsbController extends GetxController {
   }
 
   Future<bool> _connectTo(device) async {
-    serialData.clear();
-
     if (_subscription != null) {
       _subscription.cancel();
       _subscription = null;
@@ -56,6 +53,7 @@ class UsbController extends GetxController {
       deviceId.value = 0;
       locationController.clearLocations();
       status.value = "Disconnected";
+      update();
       return true;
     }
 
@@ -77,12 +75,9 @@ class UsbController extends GetxController {
     );
 
     _subscription = _transaction.stream.listen((String line) {
-      serialData.add(Text(line));
-      if (serialData.length > 20) {
-        serialData.removeAt(0);
-      }
       Map locationMap = jsonDecode(line);
       locationController.addLocation(Location.fromJson(locationMap));
+      update();
     });
 
     status.value = "Connected";

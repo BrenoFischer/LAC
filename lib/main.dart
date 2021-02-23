@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:lac/controllers/location_controller.dart';
 import 'package:lac/controllers/usb_controller.dart';
-import 'package:lac/screens/temporario.dart';
 import 'package:lac/screens/welcome.dart';
 import 'package:lac/ui/styles.dart';
 import 'package:flutter/material.dart';
