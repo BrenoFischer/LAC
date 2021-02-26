@@ -38,6 +38,8 @@ class MapController extends GetxController {
 
     markers[markerId] = marker;
     center.value = LatLng(lat, lng);
+    gmapController.future.then(
+        (value) => value.moveCamera(CameraUpdate.newLatLng(center.value)));
     update();
   }
 
