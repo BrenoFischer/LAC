@@ -1,6 +1,6 @@
 class Location {
-  final String id;
-  final String type;
+  final int id;
+  final int type;
   final double lat;
   final double lng;
   final double high;

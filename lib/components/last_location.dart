@@ -36,7 +36,7 @@ class LastLocation extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(bottom: 10),
                     child: Text(
-                      locationController.locations[0].id,
+                      locationController.locations[0].id.toString(),
                       style: AppStyles.listCardTitle,
                     ),
                   ),

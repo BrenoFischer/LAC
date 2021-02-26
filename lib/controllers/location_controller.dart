@@ -16,7 +16,7 @@ class LocationController extends GetxController {
   addLocation(Location location) {
     clearLocations();
     locations.add(location);
-    mapController.addMarker(location.lat, location.lng, int.parse(location.id));
+    mapController.addMarker(location.lat, location.lng, location.id);
   }
 
   clearLocations() {
