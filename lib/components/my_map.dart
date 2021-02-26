@@ -3,9 +3,8 @@ import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:lac/controllers/marker_controller.dart';
+import 'package:lac/controllers/map_controller.dart';
 
 class MyMap extends StatefulWidget {
   @override
@@ -13,23 +12,20 @@ class MyMap extends StatefulWidget {
 }
 
 class _MyMapState extends State<MyMap> {
-  Completer<GoogleMapController> _controller = Completer();
-  final MarkerController markerController = MarkerController.to;
+  final MapController mapController = MapController.to;
 
-  static final CameraPosition initialPosition = CameraPosition(
-    target: LatLng(53.2839936, -9.1187864),
-    zoom: 14.4746,
-  );
   @override
   Widget build(BuildContext context) {
-    return GetX<MarkerController>(builder: (markerController) {
+    return GetX<MapController>(builder: (mapController) {
       return GoogleMap(
-        markers: Set<Marker>.of(markerController.markers.values),
+        markers: Set<Marker>.of(mapController.markers.values),
         mapType: MapType.hybrid,
-        initialCameraPosition: initialPosition,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+        initialCameraPosition: CameraPosition(
+          target: mapController.center.value,
+          zoom: 7.0,
+        ),
+        onMapCreated: mapController.onMapCreated,
+        onCameraMove: mapController.onCameraMove,
         gestureRecognizers: Set()
           ..add(
             Factory<EagerGestureRecognizer>(() => EagerGestureRecognizer()),

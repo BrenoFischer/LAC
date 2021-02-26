@@ -1,17 +1,12 @@
-import 'dart:typed_data';
-
 import 'package:get/get.dart';
-import 'package:lac/classes/location.dart';
 import 'package:lac/components/last_location.dart';
 import 'package:lac/components/my_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:lac/controllers/location_controller.dart';
 import 'package:lac/controllers/usb_controller.dart';
 import 'package:lac/ui/styles.dart';
 
 class DataScreen extends StatelessWidget {
   final usbController = UsbController.to;
-  final locationController = LocationController.to;
 
   @override
   Widget build(BuildContext context) {

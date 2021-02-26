@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:lac/classes/location.dart';
 import 'package:get/get.dart';
 import 'package:lac/controllers/location_controller.dart';
+import 'package:lac/controllers/map_controller.dart';
 import 'package:usb_serial/transaction.dart';
 import 'package:usb_serial/usb_serial.dart';
 
@@ -19,6 +20,7 @@ class UsbController extends GetxController {
   final deviceId = 0.obs;
 
   final locationController = LocationController.to;
+  final mapController = MapController.to;
 
   static UsbController get to => Get.find<UsbController>();
 
@@ -52,6 +54,7 @@ class UsbController extends GetxController {
     if (device == null) {
       deviceId.value = 0;
       locationController.clearLocations();
+      mapController.clearMarkers();
       status.value = "Disconnected";
       update();
       return true;

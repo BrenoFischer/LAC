@@ -17,14 +17,16 @@ class MapScreen extends StatelessWidget {
       body: Container(
         height: size.height,
         alignment: Alignment.center,
-        child: Column(
-          children: [
-            Container(
-              height: SizeConfig.textMultiplier * 60,
-              child: MyMap(),
-            ),
-            LastLocation(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: SizeConfig.textMultiplier * 60,
+                child: MyMap(),
+              ),
+              LastLocation(),
+            ],
+          ),
         ),
       ),
     );

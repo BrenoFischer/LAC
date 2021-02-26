@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:lac/controllers/location_controller.dart';
-import 'package:lac/controllers/marker_controller.dart';
+import 'package:lac/controllers/map_controller.dart';
 import 'package:lac/controllers/usb_controller.dart';
 import 'package:lac/screens/welcome.dart';
 import 'package:lac/ui/styles.dart';
@@ -9,7 +9,7 @@ import 'package:lac/ui/styles_config.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(MarkerController());
+  Get.put(MapController());
   Get.put(LocationController());
   Get.put(UsbController());
   return runApp(MyApp());
